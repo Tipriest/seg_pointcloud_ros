@@ -1,0 +1,7 @@
+<launch>
+    <arg name="config_yaml" default="$(find seg_pointcloud_ros)/config/seg_pointcloud_realdog.yaml" />
+
+    <node pkg="seg_pointcloud_ros" type="seg_pointcloud_node.py" name="seg_pointcloud_node" output="screen">
+        <rosparam command="load" file="$(arg config_yaml)" />
+    </node>
+</launch>

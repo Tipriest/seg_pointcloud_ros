@@ -1,9 +1,9 @@
-config: "/home/tipriest/Documents/CVTask/mmsegmentation/configs/mask2former/mask2former_r50_8xb2-160k_waterworld-512x512.py"
-checkpoint: "/home/tipriest/Documents/CVTask/mmsegmentation/work_dirs/mask2former_r50_8xb2-160k_waterworld-512x512/iter_150000.pth"
+config: "/home/tipriest/Documents/CVTask/mmsegmentation/configs/mask2former/mask2former_r50_8xb2-20k_realdog-512x512.py"
+checkpoint: "/home/tipriest/Documents/CVTask/mmsegmentation/work_dirs/mask2former_r50_8xb2-20k_realdog-512x512/iter_20000.pth"
 device: "cuda:0"
 alpha: 0.5
-input_rgb: "/camera_face/color/image_raw"
-input_depth: "/camera_face/depth/image_raw"
+input_rgb: "/zed2i/zed_node/rgb/image_rect_color"
+input_depth: "/zed2i/zed_node/depth/depth_registered"
 output_cloud: "/seg_pointcloud/points"
 output_overlay: "/seg_pointcloud/overlay"
 # palette: [[r, g, b], ...] for each class id, leave empty to use model palette
@@ -14,9 +14,9 @@ palette:
   - [20, 20, 20]     # class 3
 sample_rate: 50
 depth_scale: 1.0
-frame_id: "camera_optical_face"
+frame_id: "zed2i_left_camera_optical_frame"
 resize_width: 0
 resize_height: 0
 # intrinsics fx, fy, cx, cy
-intrinsics: [554.5091528011569, 554.5091528011569, 960.0, 540.0]
+intrinsics: [261.10968, 261.10968, 317.89624, 181.96793]
 extrinsics: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]

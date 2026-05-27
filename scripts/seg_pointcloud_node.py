@@ -111,7 +111,7 @@ class SegPointCloudNode:
         return struct.unpack("f", struct.pack("I", rgb_uint32))[0]
 
     def cb(self, rgb_msg, depth_msg):
-        rospy.loginfo("Received synchronized RGB and depth images")
+        # rospy.loginfo("Received synchronized RGB and depth images")
         bgr = self.bridge.imgmsg_to_cv2(rgb_msg, desired_encoding="bgr8")
         depth = self.bridge.imgmsg_to_cv2(depth_msg, desired_encoding="passthrough")
 
@@ -180,7 +180,7 @@ class SegPointCloudNode:
 
         cloud_msg = point_cloud2.create_cloud(header, fields, cloud_points)
         self.pub_cloud.publish(cloud_msg)
-        rospy.loginfo(f"Published segmented point cloud with {len(cloud_points)} points")
+        # rospy.loginfo(f"Published segmented point cloud with {len(cloud_points)} points")
 
         rgb = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
         self.visualizer.add_datasample(

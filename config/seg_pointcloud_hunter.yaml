@@ -1,0 +1,25 @@
+config: "/home/tipriest/Documents/CVTask/mmsegmentation/configs/mask2former/mask2former_r50_8xb2-20k_realdog-512x512.py"
+checkpoint: "/home/tipriest/Documents/CVTask/mmsegmentation/work_dirs/mask2former_r50_8xb2-20k_realdog-512x512/iter_20000.pth"
+device: "cuda:0"
+alpha: 0.5
+input_rgb: "/zed2/zed_node/rgb/image_rect_color"
+input_depth: "/zed2/zed_node/depth/depth_registered"
+output_cloud: "/seg_pointcloud/points"
+output_overlay: "/seg_pointcloud/overlay"
+# palette: [[r, g, b], ...] for each class id, leave empty to use model palette
+palette:
+  - [0, 255, 0]       # class 0
+  - [255, 0, 0]     # class 1
+  - [0, 0, 255]     # class 2
+  - [20, 20, 20]     # class 3
+sample_rate: 10
+depth_scale: 1.0
+frame_id: "base_slam"
+resize_width: 0
+resize_height: 0
+# intrinsics fx, fy, cx, cy
+intrinsics: [260.8095703125, 260.8095703125, 327.5155334472656, 180.27699279785156]
+extrinsics: [ 0, -0.465464386,  0.885066611, 0,
+              -1,           0,            0, 0,
+              0, -0.885066611, -0.465464386, 0.6,
+              0,            0,            0, 1]
